@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <script defer src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script defer src="../js/chat.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    <h2>Welcome, <span id="username"></span>!</h2>
+
+    <h3>Select a Room:</h3>
+    <select id="roomSelect">
+        <option value="devops">DevOps</option>
+        <option value="cloud computing">Cloud Computing</option>
+        <option value="covid19">COVID-19</option>
+        <option value="sports">Sports</option>
+        <option value="nodeJS">Node.js</option>
+        
+    </select>
+    <h3>Private Chat</h3>
+    <input type="text" id="privateUser" placeholder="Enter username to chat privately">
+    <button id="startPrivateChatBtn">Start Private Chat</button>
+
+    <button id="joinRoomBtn">Join Room</button>
+
+    <h3>Chat Messages:</h3>
+    <p id="typingIndicator" style="color: gray; font-style: italic;"></p>
+    <div id="chatBox" style="border: 1px solid black; width: 400px; height: 200px; overflow-y: scroll; padding: 10px;">
+        
+    </div>
+
+    <input type="text" id="messageInput" placeholder="Type a message...">
+    <button id="sendMessageBtn">Send</button>
+
+    <button id="leaveRoomBtn">Leave Room</button>
+    <button id="logoutBtn">Logout</button>
+
+
+    <h2>Event Logs</h2>
+    <div id="event-window">
+        <div id="event-log"></div>
+    </div>
+</body>
+</html>
