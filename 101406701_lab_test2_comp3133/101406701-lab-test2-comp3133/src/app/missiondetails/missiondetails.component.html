@@ -1,0 +1,26 @@
+<div style="display: flex; justify-content: center; padding: 2rem;">
+    <mat-card *ngIf="mission" style="max-width: 600px; width: 100%;">
+      <mat-card-header>
+        <mat-card-title>{{ mission.mission_name }} ({{ mission.launch_year }})</mat-card-title>
+        <mat-card-subtitle>Flight #{{ mission.flight_number }}</mat-card-subtitle>
+      </mat-card-header>
+  
+      <img mat-card-image [src]="mission.links?.mission_patch_small" alt="Mission Patch" />
+  
+      <mat-card-content>
+        <p><strong>Rocket:</strong> {{ mission.rocket.rocket_name }} - {{ mission.rocket.rocket_type }}</p>
+        <p>{{ mission.details || 'No details available.' }}</p>
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <a mat-button *ngIf="mission.links?.article_link" [href]="mission.links.article_link" target="_blank">Read Article</a>
+        <a mat-button *ngIf="mission.links?.wikipedia" [href]="mission.links.wikipedia" target="_blank">Wikipedia</a>
+        <a mat-button *ngIf="mission.links?.video_link" [href]="mission.links.video_link" target="_blank">Watch Video</a>
+      </mat-card-actions>
+    </mat-card>
+  
+    <div *ngIf="!mission" style="margin-top: 5rem;">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+  

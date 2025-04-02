@@ -1,0 +1,21 @@
+<h2>SpaceX Mission List</h2>
+
+<app-missionfilter (yearSelected)="filterByYear($event)"></app-missionfilter>
+
+<ul *ngIf="filteredLaunches.length > 0; else loading">
+  <li *ngFor="let mission of filteredLaunches">
+    <!-- ✅ Link to the details page -->
+    <a [routerLink]="['/mission', mission.flight_number]">
+      <strong>{{ mission.mission_name }}</strong>
+    </a>
+    ({{ mission.launch_year }})<br>
+
+    <img [src]="mission.links?.mission_patch_small" alt="patch" width="50" /><br>
+    {{ mission.details || 'No details available.' }}
+    <hr>
+  </li>
+</ul>
+
+<ng-template #loading>
+  <p>Loading missions...</p>
+</ng-template>
