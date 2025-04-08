@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div class="card p-4 shadow">
+    <h3 class="text-center mb-4">Employee Details</h3>
+
+    <div *ngIf="loading" class="alert alert-info text-center">Loading...</div>
+    <div *ngIf="error" class="alert alert-danger text-center">{{ error.message }}</div>
+
+    <div *ngIf="employee && !loading">
+      <p><strong>First Name:</strong> {{ employee.first_name }}</p>
+      <p><strong>Last Name:</strong> {{ employee.last_name }}</p>
+      <p><strong>Email:</strong> {{ employee.email }}</p>
+      <p><strong>Gender:</strong> {{ employee.gender }}</p>
+      <p><strong>Designation:</strong> {{ employee.designation }}</p>
+      <p><strong>Salary:</strong> ${{ employee.salary }}</p>
+      <p><strong>Date of Joining:</strong> {{ employee.date_of_joining | date }}</p>
+      <p><strong>Department:</strong> {{ employee.department }}</p>
+      <p><strong>Photo:</strong> {{ employee.employee_photo }}</p>
+    </div>
+
+    <div class="text-center mt-3">
+      <a routerLink="/employees" class="btn btn-link">← Back to Employee List</a>
+    </div>
+  </div>
+</div>

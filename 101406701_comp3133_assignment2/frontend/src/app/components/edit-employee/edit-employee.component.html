@@ -1,0 +1,124 @@
+<div class="container mt-4">
+  <div class="card shadow p-4">
+    <h3 class="text-center mb-4">Edit Employee</h3>
+
+    <form (ngSubmit)="updateEmployee()" class="row g-3">
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input
+          id="firstName"
+          [(ngModel)]="employee.first_name"
+          name="first_name"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input
+          id="lastName"
+          [(ngModel)]="employee.last_name"
+          name="last_name"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input
+          id="email"
+          [(ngModel)]="employee.email"
+          name="email"
+          type="email"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label for="gender" class="form-label">Gender</label>
+        <select
+          id="gender"
+          [(ngModel)]="employee.gender"
+          name="gender"
+          class="form-select"
+        >
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="designation" class="form-label">Designation</label>
+        <input
+          id="designation"
+          [(ngModel)]="employee.designation"
+          name="designation"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label for="salary" class="form-label">Salary</label>
+        <input
+          id="salary"
+          [(ngModel)]="employee.salary"
+          name="salary"
+          type="number"
+          min="1000"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label for="date_of_joining" class="form-label">Date of Joining</label>
+        <input
+          id="date_of_joining"
+          [(ngModel)]="employee.date_of_joining"
+          name="date_of_joining"
+          type="date"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label for="department" class="form-label">Department</label>
+        <input
+          id="department"
+          [(ngModel)]="employee.department"
+          name="department"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-12">
+        <label for="photo" class="form-label">Employee Photo (File Name)</label>
+        <input
+          id="photo"
+          [(ngModel)]="employee.employee_photo"
+          name="employee_photo"
+          class="form-control"
+        />
+      </div>
+
+      <div class="col-12 text-center mt-3">
+        <button type="submit" class="btn btn-warning px-5">Update Employee</button>
+      </div>
+    </form>
+
+    <div *ngIf="message" class="alert alert-success text-center mt-3">
+      {{ message }}
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger text-center mt-3">
+      {{ error }}
+    </div>
+
+    <div class="text-center mt-3">
+      <a routerLink="/employees" class="btn btn-link">← Back to Employee List</a>
+    </div>
+  </div>
+</div>
