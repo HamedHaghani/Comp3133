@@ -2,15 +2,16 @@ const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 const { GraphQLDateTime } = require('graphql-iso-date');
 const mongoose = require("mongoose");
+const dotenv = require('dotenv');
 
+dotenv.config();
 const app = express();
 const userRouter = require('./user');
 const empRouter = require('./emp');
 const SERVER_PORT = process.env.PORT || 3000;
 
 
-const DB_CONNECTION_STRING = "mongodb+srv://hamedhaghani:0K7EhdYK1otXaZyQ@clusterone.jbgqy.mongodb.net/?retryWrites=true&w=majority&appName=ClusterOne";
-
+const DB_CONNECTION_STRING = process.env.DB_CONNECTION_STRING;
 mongoose.connect(DB_CONNECTION_STRING, {
   // useNewUrlParser: true,
   // useUnifiedTopology: true
